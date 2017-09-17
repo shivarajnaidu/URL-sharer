@@ -19,7 +19,6 @@ gulp.task('scripts', () => {
 gulp.task('styles', () => {
     return gulp.src('css/*.css')
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('build/css/'))
         .pipe(cleanCSS())
         .pipe(rename('app.min.css'))
         .pipe(gulp.dest('build/css/'))
@@ -45,9 +44,12 @@ gulp.task('icons', () => {
         .pipe(gulp.dest('build/icons'))
 });
 
-gulp.task('mainfest', () => {
-    return gulp.src('mainfest.json')
-        .pipe(gulp.dest('build/mainfest.json'))
+gulp.task('manifest', () => {
+    return gulp.src('./manifest.json')
+        .pipe(gulp.dest('build'))
 });
 
-gulp.task('default', ['scripts', 'styles', 'html', 'fonts', 'icons', 'mainfest']);
+
+gulp.task('copy', ['fonts', 'icons', 'manifest']);
+
+gulp.task('default', ['scripts', 'styles', 'html', 'copy']);
