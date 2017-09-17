@@ -4,14 +4,13 @@ const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
 const htmlReplace = require('gulp-html-replace');
 const htmlmin = require('gulp-htmlmin');
-// const uglify = require('gulp-uglify');
-const minify = require('gulp-minify');
+const uglify = require('gulp-uglify-es').default;
 const rename = require('gulp-rename');
 
 gulp.task('scripts', () => {
     return gulp.src('js/*.js')
         .pipe(concat('app.js'))
-        .pipe(minify())
+        .pipe(uglify())
         .pipe(rename('app.min.js'))
         .pipe(gulp.dest('build/js'));
 });
