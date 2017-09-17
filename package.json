@@ -1,0 +1,23 @@
+{
+  "name": "url-sharer",
+  "version": "1.0.0",
+  "description": "Share Everything You Want To Share",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivarajnaidu/URL-sharer.git"
+  },
+  "author": "Yuvaraj (aka Shivaraj)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/shivarajnaidu/URL-sharer/issues"
+  },
+  "homepage": "https://github.com/shivarajnaidu/URL-sharer#readme"
+}
