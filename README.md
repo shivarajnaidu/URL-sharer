@@ -1,6 +1,15 @@
 # URL-sharer
 Share Everything You Want To Share..
 
+# Build 
+
+Run...
+npm install
+and then.. gulp on project root directory..
+
+Github URL:
+https://github.com/shivarajnaidu/URL-sharer
+
 This Program is Licensed under GPL v3
 Copyright (C) 2016 - present yuvaraj (aka shivaraj)
 See LICENSE file for more information..
