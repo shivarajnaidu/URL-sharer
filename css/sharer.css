@@ -1,0 +1,57 @@
+#social-sharing-link-container-layout {
+    padding: 15px;
+    width: 300px;
+}
+
+.sharing-buttons {
+    border-radius: 100%;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    color: #fff;
+    display:inline-block;
+    font: normal bold 22px/1.5 FontAwesome,"Pt serif","Georgia",Arial,sans-serif;
+    letter-spacing: 1px;
+    margin:10px;
+    text-decoration: none;
+    text-align: center;
+    width:50px;
+    height:50px;
+    padding: 10px;
+    text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#url-facebook{
+    background-color: #4862A3;
+}
+
+#url-twitter, #url-linkedin{
+    background-color: #2AAAE0;
+}
+
+#url-google-plus {
+    background-color: #D52323;
+}
+
+#url-reddit {
+    background-color: red;
+}
+
+#url-stumbleupon {
+    background-color: #f14829;
+}
+
+#url-pinterest {
+	background-color: #db3037;
+}
+
+#url-facebook:hover,
+#url-twitter:hover,
+#url-google-plus:hover,
+#url-reddit:hover,
+#url-linkedin:hover,
+#url-stumbleupon:hover,
+#url-pinterest:hover {
+    background-color: green;
+}
