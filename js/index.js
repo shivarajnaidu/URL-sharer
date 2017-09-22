@@ -27,8 +27,7 @@ This program is free software: you can redistribute it and/or modify
         a.href = href;
         a.target = '_blank';
         a.addEventListener('click', event => {
-            chrome.tabs.create({ url: href });
-            window.close();
+            window.setTimeout(() => window.close(), 10)
         });
     }
 
