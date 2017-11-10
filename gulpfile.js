@@ -48,7 +48,13 @@ gulp.task('manifest', () => {
         .pipe(gulp.dest('build'))
 });
 
+gulp.task('backgroundScript', () => {
+    return gulp.src('./background-script.js')
+        .pipe(uglify())
+        .pipe(rename('background-script.js'))
+        .pipe(gulp.dest('build'))
+});
 
-gulp.task('copy', ['fonts', 'icons', 'manifest']);
+gulp.task('copy', ['fonts', 'icons', 'manifest', 'backgroundScript']);
 
 gulp.task('default', ['scripts', 'styles', 'html', 'copy']);

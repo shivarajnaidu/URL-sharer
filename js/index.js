@@ -18,23 +18,39 @@ This program is free software: you can redistribute it and/or modify
 (function() {
     'use strict';
 
+    // Send Message To Background Script
+
+    function sendMessage(tab) {
+        const { id } = tab;
+        browser.runtime.sendMessage({
+            type: 'sharer-tab-id',
+            data: { id }
+        });
+    }
+
     /*
      * Assign URLs To Respective Element
-     */ 
+     */
     function urlAssigner(btn = {}) {
         const { id, href } = btn;
         const a = document.getElementById(id);
         a.href = href;
         a.target = '_blank';
         a.addEventListener('click', event => {
+            event.preventDefault();
+            const { href } = event.target;
+            chrome.tabs.create({ url: href }, function(tab) {
+                // console.log(tab, tab.id);
+                sendMessage(tab)
+            })
             window.setTimeout(() => window.close(), 10)
         });
     }
 
-    
+
     /*
      * Make Social Button Objects
-     */ 
+     */
 
     function mkBtns(tabUrl = '') {
 
@@ -86,6 +102,10 @@ This program is free software: you can redistribute it and/or modify
         };
 
         chrome.tabs.query(queryInfo, (tabs = []) => {
+            if (tabs.length === 0) {
+                return;
+            }
+
             const tab = (tabs[0] || {});
             const tabUrL = tab.url;
             mkBtns(tabUrL);
@@ -93,7 +113,5 @@ This program is free software: you can redistribute it and/or modify
 
         // End
     })();
-
-
 
 })();
