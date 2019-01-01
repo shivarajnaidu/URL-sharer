@@ -15,7 +15,7 @@ This program is free software: you can redistribute it and/or modify
 */
 
 ;
-(function() {
+(function () {
     'use strict';
 
     // Send Message To Background Script
@@ -39,7 +39,7 @@ This program is free software: you can redistribute it and/or modify
         a.addEventListener('click', event => {
             event.preventDefault();
             const { href } = event.target;
-            chrome.tabs.create({ url: href }, function(tab) {
+            chrome.tabs.create({ url: href }, function (tab) {
                 // console.log(tab, tab.id);
                 sendMessage(tab)
             })
@@ -65,11 +65,6 @@ This program is free software: you can redistribute it and/or modify
         twitter.href = `https://twitter.com/share?url=${tabUrl}`;
         twitter.id = 'url-twitter';
         socialBtns.push(twitter);
-
-        const googlePlus = {};
-        googlePlus.href = `https://plus.google.com/share?url=${tabUrl}`;
-        googlePlus.id = 'url-google-plus';
-        socialBtns.push(googlePlus);
 
         const reddit = {};
         reddit.href = `https://www.reddit.com/submit?url=${tabUrl}`;

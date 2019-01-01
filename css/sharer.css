@@ -30,10 +30,6 @@
     background-color: #2AAAE0;
 }
 
-#url-google-plus {
-    background-color: #D52323;
-}
-
 #url-reddit {
     background-color: red;
 }
@@ -48,7 +44,6 @@
 
 #url-facebook:hover,
 #url-twitter:hover,
-#url-google-plus:hover,
 #url-reddit:hover,
 #url-linkedin:hover,
 #url-stumbleupon:hover,
