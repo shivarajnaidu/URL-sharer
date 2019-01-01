@@ -42,11 +42,16 @@
 	background-color: #db3037;
 }
 
+#url-email {
+    background-color: grey;
+}
+
 #url-facebook:hover,
 #url-twitter:hover,
 #url-reddit:hover,
 #url-linkedin:hover,
 #url-stumbleupon:hover,
-#url-pinterest:hover {
+#url-pinterest:hover,
+#url-email:hover {
     background-color: green;
 }

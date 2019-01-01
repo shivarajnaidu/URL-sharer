@@ -42,3 +42,7 @@
 .fa-pinterest:before {
   content: "\f0d2";
 }
+
+.fa-envelope:before {
+  content: "\f0e0";
+}

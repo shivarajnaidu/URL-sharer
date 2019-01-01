@@ -52,7 +52,7 @@ This program is free software: you can redistribute it and/or modify
      * Make Social Button Objects
      */
 
-    function mkBtns(tabUrl = '') {
+    function mkBtns(tabUrl = '', tabTitle = '') {
 
         const socialBtns = [];
 
@@ -81,10 +81,15 @@ This program is free software: you can redistribute it and/or modify
         stumbleupon.id = 'url-stumbleupon';
         socialBtns.push(stumbleupon);
 
-        const pinterest = {}
+        const pinterest = {};
         pinterest.href = `http://pinterest.com/pin/create/button/?url=${tabUrl}`;
         pinterest.id = 'url-pinterest';
         socialBtns.push(pinterest);
+
+        const email = {};
+        email.href = `mailto:?subject=${tabTitle}&body=${tabUrl}`;
+        email.id = 'url-email';
+        socialBtns.push(email);
 
         socialBtns.forEach(urlAssigner);
     }
@@ -103,7 +108,8 @@ This program is free software: you can redistribute it and/or modify
 
             const tab = (tabs[0] || {});
             const tabUrL = tab.url;
-            mkBtns(tabUrL);
+            const tabTitle = tab.title;
+            mkBtns(tabUrL, tabTitle);
         });
 
         // End
