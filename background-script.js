@@ -1,7 +1,7 @@
 'use strict';
 
 ;
-(function() {
+(function () {
 
     const openedTabIDs = [];
 
@@ -28,7 +28,7 @@
 
     //  Add Listener For On Message Event And Get And Store Opened Tab IDs For Future Reference...
 
-    browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         if (request.type === 'sharer-tab-id') {
             const { id } = request.data;
             openedTabIDs.push(id);
@@ -52,11 +52,5 @@
         if (isFacebook(tab) && (url.includes('dialog/return/close#_=_') || url.includes('latest_status_id='))) {
             closeTab(id)
         }
-
-        if (url === 'https://plus.google.com/') {
-            closeTab(id)
-        }
-
-
     }
 })();

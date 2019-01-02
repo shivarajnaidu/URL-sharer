@@ -26,9 +26,6 @@
 .fa-facebook:before {
   content: "\f09a";
 }
-.fa-google-plus:before {
-  content: "\f0d5";
-}
 .fa-linkedin:before {
   content: "\f0e1";
 }
@@ -44,4 +41,8 @@
 
 .fa-pinterest:before {
   content: "\f0d2";
+}
+
+.fa-envelope:before {
+  content: "\f0e0";
 }
