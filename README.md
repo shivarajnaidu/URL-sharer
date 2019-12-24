@@ -10,6 +10,10 @@ https://addons.mozilla.org/en-US/firefox/addon/url-sharer/
 https://chrome.google.com/webstore/detail/url-sharer/efbabpfmnagdngganefofhopnoddbmae?hl=en
 
 
+## Any contributions are appreciated.
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/shivarajnaidu)
+
+
 Github URL:
 https://github.com/shivarajnaidu/URL-sharer
 
