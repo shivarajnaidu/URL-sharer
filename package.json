@@ -1,6 +1,6 @@
 {
   "name": "url-sharer",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Share Everything You Want To Share",
   "main": "gulpfile.js",
   "dependencies": {},
