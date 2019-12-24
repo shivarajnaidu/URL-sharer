@@ -20,6 +20,11 @@
         return (status === 'loading');
     }
 
+    const isEmptyTab = (tab) => {
+        const { url } = tab;
+        return (url === 'chrome://newtab/') || (url === 'about:blank');
+    };
+
     function closeTab(id) {
         browser.tabs.remove(id);
         openedTabIDs.splice(openedTabIDs.indexOf(id), 1);
@@ -41,9 +46,9 @@
     chrome.tabs.onUpdated.addListener(onTabUpdateListener);
 
     function onTabUpdateListener(tabID, changeInfo, tab) {
-        console.log(tabID, tab);
+        // console.log(tabID, tab);
 
-        if (isLoading(tab) || !isTabOpenedByMe(tab)) {
+        if (isLoading(tab) || !isTabOpenedByMe(tab) || isEmptyTab(tab)) {
             return;
         }
 
