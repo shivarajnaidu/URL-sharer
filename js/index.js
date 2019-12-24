@@ -38,10 +38,7 @@ This program is free software: you can redistribute it and/or modify
         a.addEventListener('click', event => {
             event.preventDefault();
             const { href } = event.target;
-            chrome.tabs.create({ url: href }, function (tab) {
-                // console.log(tab, tab.id);
-                sendMessage(tab)
-            })
+            chrome.tabs.create({ url: href }, sendMessage)
             window.setTimeout(() => window.close(), 10)
         });
     }
@@ -50,6 +47,13 @@ This program is free software: you can redistribute it and/or modify
     /* 
      * Make Copy Button  
      */
+    const showAlertOnColied = () => {
+        const copiedAlert = document.querySelector('#url-copy span');
+        copiedAlert.style.display = 'inline';
+        setTimeout(() => {
+            copiedAlert.style.display = 'none';
+        }, 2000);
+    };
 
     const copyURL = (url) => {
         const input = document.querySelector('#url-copy > input');
@@ -58,6 +62,9 @@ This program is free software: you can redistribute it and/or modify
         input.select();
         document.execCommand('copy');
         input.style.display = 'none';
+
+        // Show/Hide Copied Text On Text Copy
+        showAlertOnColied();
     };
 
     const makeCopyButton = (url) => {

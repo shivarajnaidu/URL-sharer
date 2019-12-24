@@ -51,16 +51,9 @@
 #url-copy {
     cursor: pointer;
     background-color: grey;
+    position: relative;
 }
 
-#url-copy input {
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    display: none;
-}
 
 #url-facebook:hover,
 #url-twitter:hover,
@@ -71,6 +64,25 @@
 #url-email:hover,
 #url-copy:hover {
     background-color: green;
+}
+
+/* Copy Button Specific Styles */
+
+#url-copy input {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    display: none;
+}
+
+#url-copy span {
+    position: absolute;
+    color: black;
+    font-size: 10px;
+    left: 0;
+    display: none;
 }
 
 /* About */
