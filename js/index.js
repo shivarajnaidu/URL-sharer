@@ -19,7 +19,6 @@ This program is free software: you can redistribute it and/or modify
     'use strict';
 
     // Send Message To Background Script
-
     function sendMessage(tab) {
         const { id } = tab;
         browser.runtime.sendMessage({
@@ -47,6 +46,26 @@ This program is free software: you can redistribute it and/or modify
         });
     }
 
+
+    /* 
+     * Make Copy Button  
+     */
+
+    const copyURL = (url) => {
+        const input = document.querySelector('#url-copy > input');
+        input.value = url;
+        input.style.display = 'block';
+        input.select();
+        document.execCommand('copy');
+        input.style.display = 'none';
+    };
+
+    const makeCopyButton = (url) => {
+        const btn = document.querySelector('#url-copy');
+        btn.addEventListener('click', () => {
+            copyURL(url);
+        });
+    }
 
     /*
      * Make Social Button Objects
@@ -110,6 +129,7 @@ This program is free software: you can redistribute it and/or modify
             const tabUrL = tab.url;
             const tabTitle = tab.title;
             mkBtns(tabUrL, tabTitle);
+            makeCopyButton(tabUrL);
         });
 
         // End

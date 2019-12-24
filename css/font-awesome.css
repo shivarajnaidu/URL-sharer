@@ -10,6 +10,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -18,23 +19,29 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
 .fa-twitter:before {
   content: "\f099";
 }
+
 .fa-facebook:before {
   content: "\f09a";
 }
+
 .fa-linkedin:before {
   content: "\f0e1";
 }
+
 .fa-reddit-alien:before {
   content: "\f281";
 }
+
 .fa-stumbleupon:before {
   content: "\f1a4";
 }
+
 .fa-bluetooth:before {
   content: "\f293";
 }
@@ -45,4 +52,8 @@
 
 .fa-envelope:before {
   content: "\f0e0";
+}
+
+.fa-copy:before {
+  content: "\f0c5";
 }

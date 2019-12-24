@@ -9,25 +9,26 @@
     border: 2px solid transparent;
     box-sizing: border-box;
     color: #fff;
-    display:inline-block;
-    font: normal bold 22px/1.5 FontAwesome,"Pt serif","Georgia",Arial,sans-serif;
+    display: inline-block;
+    font: normal bold 22px/1.5 FontAwesome, "Pt serif", "Georgia", Arial, sans-serif;
     letter-spacing: 1px;
-    margin:10px;
+    margin: 10px;
     text-decoration: none;
     text-align: center;
-    width:50px;
-    height:50px;
+    width: 50px;
+    height: 50px;
     padding: 10px;
     text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-#url-facebook{
+#url-facebook {
     background-color: #4862A3;
 }
 
-#url-twitter, #url-linkedin{
+#url-twitter,
+#url-linkedin {
     background-color: #2AAAE0;
 }
 
@@ -40,11 +41,25 @@
 }
 
 #url-pinterest {
-	background-color: #db3037;
+    background-color: #db3037;
 }
 
 #url-email {
     background-color: grey;
+}
+
+#url-copy {
+    cursor: pointer;
+    background-color: grey;
+}
+
+#url-copy input {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    display: none;
 }
 
 #url-facebook:hover,
@@ -53,6 +68,19 @@
 #url-linkedin:hover,
 #url-stumbleupon:hover,
 #url-pinterest:hover,
-#url-email:hover {
+#url-email:hover,
+#url-copy:hover {
     background-color: green;
+}
+
+/* About */
+
+.about-me {
+    margin-top: 1rem;
+}
+
+.about-me a {
+    text-decoration: none;
+    font-size: .8rem;
+    font-style: italic;
 }
