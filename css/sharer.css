@@ -1,6 +1,7 @@
 #social-sharing-link-container-layout {
     padding: 15px;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
 }
 
 .sharing-buttons {
