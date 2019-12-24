@@ -26,14 +26,14 @@
     };
 
     function closeTab(id) {
-        browser.tabs.remove(id);
+        chrome.tabs.remove(id);
         openedTabIDs.splice(openedTabIDs.indexOf(id), 1);
     }
 
 
     //  Add Listener For On Message Event And Get And Store Opened Tab IDs For Future Reference...
 
-    browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         if (request.type === 'sharer-tab-id') {
             const { id } = request.data;
             openedTabIDs.push(id);
@@ -58,4 +58,5 @@
             closeTab(id)
         }
     }
+
 })();

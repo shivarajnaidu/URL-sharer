@@ -19,11 +19,10 @@ This program is free software: you can redistribute it and/or modify
     'use strict';
 
     // Send Message To Background Script
-    function sendMessage(tab) {
-        const { id } = tab;
-        browser.runtime.sendMessage({
-            type: 'sharer-tab-id',
-            data: { id }
+    function sendMessage(type, data) {
+        chrome.runtime.sendMessage({
+            type,
+            data
         });
     }
 
@@ -38,7 +37,10 @@ This program is free software: you can redistribute it and/or modify
         a.addEventListener('click', event => {
             event.preventDefault();
             const { href } = event.target;
-            chrome.tabs.create({ url: href }, sendMessage)
+            chrome.tabs.create({ url: href }, (tab) => {
+                const { id } = tab;
+                sendMessage('sharer-tab-id', { id });
+            });
             window.setTimeout(() => window.close(), 10)
         });
     }
@@ -56,11 +58,16 @@ This program is free software: you can redistribute it and/or modify
     };
 
     const copyURL = (url) => {
-        const input = document.querySelector('#url-copy > input');
-        input.value = url;
+        const input = document.querySelector('#url-copy > textarea');
+        input.textContent = url;
         input.style.display = 'block';
+        input.focus();
         input.select();
-        document.execCommand('copy');
+        const result = document.execCommand('copy');
+        if (result === 'unsuccessful') {
+            console.error('Failed to copy text.');
+        }
+
         input.style.display = 'none';
 
         // Show/Hide Copied Text On Text Copy
