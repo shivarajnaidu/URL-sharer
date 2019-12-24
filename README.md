@@ -1,11 +1,14 @@
 # URL-sharer
 Share Everything You Want To Share..
 
-# Build 
+# Install
 
-Run...
-npm install
-and then.. gulp on project root directory..
+## for Firefox 
+https://addons.mozilla.org/en-US/firefox/addon/url-sharer/
+
+## for Google Chrome
+https://chrome.google.com/webstore/detail/url-sharer/efbabpfmnagdngganefofhopnoddbmae?hl=en
+
 
 Github URL:
 https://github.com/shivarajnaidu/URL-sharer
