@@ -54,15 +54,13 @@ After loading, click the extension icon in the toolbar to open the popup.
 
 ```
 manifest.json          # Extension manifest (v2)
-index.html             # Popup UI
+index.html             # Popup UI (inline SVG icons)
 background-script.js   # Background script
 js/
   index.js             # Popup logic (sharing buttons, copy, QR)
   qrcode.min.js        # Auto-generated QR code bundle (gitignored)
 css/
   sharer.css           # Popup styles
-  font-awesome.css     # Icon font styles
-fonts/                 # FontAwesome font files
 icons/                 # Extension icons
 ```
 
@@ -81,7 +79,7 @@ icons/                 # Extension icons
    ```
    Or simply zip everything needed in one step:
    ```bash
-   zip -r url-sharer.zip manifest.json index.html background-script.js js/index.js js/qrcode.min.js css/ fonts/ icons/
+   zip -r url-sharer.zip manifest.json index.html background-script.js js/index.js js/qrcode.min.js css/ icons/
    ```
 3. Go to the [Chrome Developer Dashboard](https://chrome.google.com/webstore/devconsole)
 4. Upload `url-sharer.zip`
