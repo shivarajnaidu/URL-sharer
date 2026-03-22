@@ -36,10 +36,9 @@ This program is free software: you can redistribute it and/or modify
         a.target = '_blank';
         a.addEventListener('click', event => {
             event.preventDefault();
-            const { href } = event.target;
-            chrome.tabs.create({ url: href }, (tab) => {
-                const { id } = tab;
-                sendMessage('sharer-tab-id', { id });
+            const href = event.currentTarget.href;
+            chrome.tabs.create({ url: href }).then((tab) => {
+                sendMessage('sharer-tab-id', { id: tab.id });
             });
             window.setTimeout(() => window.close(), 10)
         });
@@ -58,20 +57,11 @@ This program is free software: you can redistribute it and/or modify
     };
 
     const copyURL = (url) => {
-        const input = document.querySelector('#url-copy > textarea');
-        input.textContent = url;
-        input.style.display = 'block';
-        input.focus();
-        input.select();
-        const result = document.execCommand('copy');
-        if (result === 'unsuccessful') {
-            console.error('Failed to copy text.');
-        }
-
-        input.style.display = 'none';
-
-        // Show/Hide Copied Text On Text Copy
-        showAlertOnColied();
+        navigator.clipboard.writeText(url).then(() => {
+            showAlertOnColied();
+        }).catch(err => {
+            console.error('Failed to copy text:', err);
+        });
     };
 
     const makeCopyButton = (url) => {
@@ -159,7 +149,7 @@ This program is free software: you can redistribute it and/or modify
             currentWindow: true
         };
 
-        chrome.tabs.query(queryInfo, (tabs = []) => {
+        chrome.tabs.query(queryInfo).then((tabs = []) => {
             if (tabs.length === 0) {
                 return;
             }
