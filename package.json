@@ -7,6 +7,8 @@
     "qrcode": "^1.5.4"
   },
   "scripts": {
+    "build": "esbuild node_modules/qrcode/lib/browser.js --bundle --outfile=js/qrcode.min.js --format=iife --global-name=QRCode --minify",
+    "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/shivarajnaidu/URL-sharer/issues"
   },
-  "homepage": "https://addons.mozilla.org/en-US/firefox/addon/url-sharer/"
+  "homepage": "https://addons.mozilla.org/en-US/firefox/addon/url-sharer/",
+  "devDependencies": {
+    "esbuild": "^0.27.4"
+  }
 }
