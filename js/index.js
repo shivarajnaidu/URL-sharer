@@ -26,9 +26,13 @@ function initTabs() {
     const panels = document.querySelectorAll('.tab-panel');
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
-            btns.forEach(b => b.classList.remove('active'));
+            btns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
             panels.forEach(p => p.classList.add('hidden'));
             btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
             document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
         });
     });
