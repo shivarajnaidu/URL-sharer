@@ -54,6 +54,11 @@
     position: relative;
 }
 
+#url-qr {
+    cursor: pointer;
+    background-color: #333;
+}
+
 
 #url-facebook:hover,
 #url-twitter:hover,
@@ -62,8 +67,56 @@
 #url-stumbleupon:hover,
 #url-pinterest:hover,
 #url-email:hover,
-#url-copy:hover {
+#url-copy:hover,
+#url-qr:hover {
     background-color: green;
+}
+
+/* QR Overlay */
+
+.qr-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.qr-overlay.hidden {
+    display: none;
+}
+
+.qr-container {
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+}
+
+.qr-container canvas {
+    display: block;
+}
+
+#qr-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    padding: 0;
 }
 
 /* Copy Button Specific Styles */

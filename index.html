@@ -8,6 +8,7 @@
     <title>URL sharer</title>
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/sharer.css">
+    <script src="js/qrcode.min.js"></script>
     <script src="js/index.js"></script>
 </head>
 
@@ -21,6 +22,14 @@
         <a class="fa-pinterest sharing-buttons" id="url-pinterest" title="Share On Pinterest"></a>
         <a class="fa-envelope sharing-buttons" id="url-email" title="Share via email"></a>
         <a class="fa-copy sharing-buttons" id="url-copy" title="Copy And Share"><textarea></textarea> <span>Copied !</span></a>
+        <a class="fa-qrcode sharing-buttons" id="url-qr" title="Show QR Code"></a>
+
+        <div id="qr-overlay" class="qr-overlay hidden">
+            <div class="qr-container">
+                <canvas id="qr-canvas"></canvas>
+                <button id="qr-close">&times;</button>
+            </div>
+        </div>
 
         <div class="about-me">
             <a href="https://github.com/shivarajnaidu/URL-sharer">URL sharer</a> By <a
