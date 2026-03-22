@@ -60,4 +60,4 @@ typings/
 # Compiled Files
 build
 dist
-js/qrcode.min.js
+js/bundle.js

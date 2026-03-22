@@ -20,7 +20,8 @@
 
   "background": {
     "scripts": ["background-script.js"],
-    "service_worker": "background-script.js"
+    "service_worker": "background-script.js",
+    "type": "module"
   },
 
   "permissions": [

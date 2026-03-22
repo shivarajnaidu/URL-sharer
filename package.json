@@ -7,7 +7,7 @@
     "qrcode": "^1.5.4"
   },
   "scripts": {
-    "build": "esbuild node_modules/qrcode/lib/browser.js --bundle --outfile=js/qrcode.min.js --format=iife --global-name=QRCode --minify",
+    "build": "esbuild js/index.js --bundle --outfile=js/bundle.js --format=iife --minify",
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
