@@ -1,0 +1,44 @@
+import { getRecentUrls, clearRecentUrls } from './recent.js';
+
+async function renderRecent() {
+    const list = document.getElementById('recent-list');
+    const empty = document.getElementById('recent-empty');
+    const clearBtn = document.getElementById('recent-clear');
+    const entries = await getRecentUrls();
+
+    list.innerHTML = '';
+    if (entries.length === 0) {
+        empty.classList.remove('hidden');
+        clearBtn.classList.add('hidden');
+        return;
+    }
+    empty.classList.add('hidden');
+    clearBtn.classList.remove('hidden');
+    entries.forEach(entry => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = entry.url;
+        a.target = '_blank';
+        a.textContent = entry.title || entry.url;
+        a.title = entry.url;
+        const time = document.createElement('time');
+        time.textContent = new Date(entry.timestamp).toLocaleString();
+        li.appendChild(a);
+        li.appendChild(time);
+        list.appendChild(li);
+    });
+}
+
+export function initRecentTab() {
+    renderRecent();
+
+    document.getElementById('recent-clear').addEventListener('click', async () => {
+        await clearRecentUrls();
+        renderRecent();
+    });
+
+    // Re-fetch when switching to the Recent tab
+    document.querySelector('[data-tab="recent"]').addEventListener('click', () => {
+        renderRecent();
+    });
+}

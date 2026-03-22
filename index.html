@@ -6,11 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base target="_blank" />
     <title>URL sharer</title>
-    <link rel="stylesheet" href="css/sharer.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/sharing.css">
+    <link rel="stylesheet" href="css/qr.css">
+    <link rel="stylesheet" href="css/recent.css">
     <script src="js/bundle.js"></script>
 </head>
 
 <body>
+    <div id="popup-container">
+    <div class="tab-bar">
+        <button class="tab-btn active" data-tab="share">Share</button>
+        <button class="tab-btn" data-tab="recent">Recent</button>
+    </div>
+
+    <div id="tab-share" class="tab-panel">
     <div id="social-sharing-link-container-layout">
         <a class="sharing-buttons" id="url-facebook" title="Share On Facebook"><img decoding="async" src="icons/svg/facebook.svg" alt="Facebook"></a>
         <a class="sharing-buttons" id="url-twitter" title="Share On Twitter"><img decoding="async" src="icons/svg/twitter.svg" alt="Twitter"></a>
@@ -33,6 +43,14 @@
             <a href="https://github.com/shivarajnaidu/URL-sharer">URL sharer</a> By <a
                 href="https://www.linkedin.com/in/shivarajnaidu/">Yuvaraj V</a>
         </div>
+    </div>
+    </div>
+
+    <div id="tab-recent" class="tab-panel hidden">
+        <ul id="recent-list"></ul>
+        <p id="recent-empty" class="hidden">No recent shares yet.</p>
+        <button id="recent-clear" class="hidden">Clear All</button>
+    </div>
     </div>
 
 </body>

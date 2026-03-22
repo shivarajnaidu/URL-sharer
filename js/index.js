@@ -18,6 +18,21 @@ import { initSocialButtons } from './modules/social.js';
 import { initCopyButton } from './modules/copy.js';
 import { initQRButton } from './modules/qr.js';
 import { getSelectedText } from './modules/selection.js';
+import { saveRecentUrl } from './modules/recent.js';
+import { initRecentTab } from './modules/recent-ui.js';
+
+function initTabs() {
+    const btns = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            panels.forEach(p => p.classList.add('hidden'));
+            btn.classList.add('active');
+            document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
+        });
+    });
+}
 
 (async function init() {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -30,4 +45,15 @@ import { getSelectedText } from './modules/selection.js';
     initSocialButtons(tabUrl, tabTitle, selectedText);
     initCopyButton(tabUrl, selectedText, tabTitle);
     initQRButton(tabUrl);
+
+    // Save to recent only when user actually clicks a sharing button
+    document.getElementById('social-sharing-link-container-layout')
+        .addEventListener('click', (e) => {
+            if (e.target.closest('.sharing-buttons')) {
+                saveRecentUrl(tabUrl, tabTitle);
+            }
+        });
+
+    initTabs();
+    initRecentTab();
 })();
