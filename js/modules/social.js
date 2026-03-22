@@ -26,15 +26,22 @@ function urlAssigner(btn = {}) {
 /*
  * Make Social Button Objects
  */
-export function initSocialButtons(tabUrl = '', tabTitle = '') {
+export function initSocialButtons(tabUrl = '', tabTitle = '', selectedText = '') {
+    const shareText = selectedText
+        ? `"${selectedText}" — ${tabTitle}`
+        : tabTitle;
+    const encodedText = encodeURIComponent(shareText);
+    const encodedUrl = encodeURIComponent(tabUrl);
+    const encodedTitle = encodeURIComponent(tabTitle);
+
     const socialBtns = [
-        { id: 'url-facebook', href: `https://www.facebook.com/sharer.php?u=${tabUrl}` },
-        { id: 'url-twitter', href: `https://twitter.com/share?url=${tabUrl}` },
-        { id: 'url-reddit', href: `https://www.reddit.com/submit?url=${tabUrl}` },
-        { id: 'url-linkedin', href: `https://www.linkedin.com/shareArticle?url=${tabUrl}` },
-        { id: 'url-stumbleupon', href: `http://www.stumbleupon.com/submit?url=${tabUrl}` },
-        { id: 'url-pinterest', href: `http://pinterest.com/pin/create/button/?url=${tabUrl}` },
-        { id: 'url-email', href: `mailto:?subject=${tabTitle}&body=${tabUrl}` },
+        { id: 'url-facebook', href: `https://www.facebook.com/sharer.php?u=${encodedUrl}` },
+        { id: 'url-twitter', href: `https://twitter.com/share?url=${encodedUrl}&text=${encodedText}` },
+        { id: 'url-reddit', href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedText}` },
+        { id: 'url-linkedin', href: `https://www.linkedin.com/shareArticle?url=${encodedUrl}&title=${encodedText}` },
+        { id: 'url-stumbleupon', href: `http://www.stumbleupon.com/submit?url=${encodedUrl}&title=${encodedText}` },
+        { id: 'url-pinterest', href: `http://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodedText}` },
+        { id: 'url-email', href: `mailto:?subject=${encodedTitle}&body=${encodedText}%0A${encodedUrl}` },
     ];
 
     socialBtns.forEach(urlAssigner);

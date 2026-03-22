@@ -17,24 +17,17 @@ This program is free software: you can redistribute it and/or modify
 import { initSocialButtons } from './modules/social.js';
 import { initCopyButton } from './modules/copy.js';
 import { initQRButton } from './modules/qr.js';
+import { getSelectedText } from './modules/selection.js';
 
-(function getCurrentTabUrl() {
-    const queryInfo = {
-        active: true,
-        currentWindow: true
-    };
+(async function init() {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (!tab) return;
 
-    chrome.tabs.query(queryInfo).then((tabs = []) => {
-        if (tabs.length === 0) {
-            return;
-        }
+    const tabUrl = tab.url;
+    const tabTitle = tab.title;
+    const selectedText = await getSelectedText();
 
-        const tab = tabs[0] || {};
-        const tabUrl = tab.url;
-        const tabTitle = tab.title;
-
-        initSocialButtons(tabUrl, tabTitle);
-        initCopyButton(tabUrl);
-        initQRButton(tabUrl);
-    });
+    initSocialButtons(tabUrl, tabTitle, selectedText);
+    initCopyButton(tabUrl, selectedText, tabTitle);
+    initQRButton(tabUrl);
 })();
