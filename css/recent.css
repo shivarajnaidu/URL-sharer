@@ -8,15 +8,15 @@
 
 #recent-list li {
     padding: 6px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
 }
 
 #recent-list li a {
-    color: #2AAAE0;
+    color: var(--color-primary);
     text-decoration: none;
-    font-size: 13px;
+    font-size: var(--font-size-base);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -26,46 +26,36 @@
     text-decoration: underline;
 }
 
-#recent-list li a:focus-visible {
-    outline: 2px solid #2AAAE0;
-    outline-offset: 1px;
-}
-
 #recent-list li time {
-    font-size: 11px;
-    color: #777;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
     margin-top: 2px;
 }
 
 #recent-empty {
     text-align: center;
-    color: #777;
+    color: var(--color-text-muted);
     padding: 24px 12px;
-    font-size: 13px;
+    font-size: var(--font-size-base);
 }
 
 #recent-clear {
     display: block;
     margin: 8px auto 12px;
     padding: 6px 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fff;
-    color: #666;
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    color: var(--color-neutral);
     font-size: 12px;
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
 }
 
 #recent-clear:hover {
-    background: #f44336;
-    color: #fff;
-    border-color: #f44336;
-}
-
-#recent-clear:focus-visible {
-    outline: 2px solid #2AAAE0;
-    outline-offset: 2px;
+    background: var(--color-danger);
+    color: var(--color-bg);
+    border-color: var(--color-danger);
 }
 
 #recent-clear.hidden {

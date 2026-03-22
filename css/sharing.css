@@ -1,11 +1,11 @@
 #social-sharing-link-container-layout {
     padding: 15px;
-    width: 420px;
+    width: var(--sharing-layout-width);
     max-width: 100%;
 }
 
 .sharing-buttons {
-    border-radius: 100%;
+    border-radius: var(--radius-circle);
     border: 2px solid transparent;
     box-sizing: border-box;
     display: inline-flex;
@@ -13,20 +13,15 @@
     justify-content: center;
     margin: 10px;
     text-decoration: none;
-    width: 50px;
-    height: 50px;
-    padding: 12px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s;
+    width: var(--btn-size);
+    height: var(--btn-size);
+    padding: var(--btn-icon-padding);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-normal);
 }
 
 .sharing-buttons:hover {
     transform: scale(1.1);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.sharing-buttons:focus-visible {
-    outline: 2px solid #2AAAE0;
-    outline-offset: 2px;
+    box-shadow: var(--shadow-hover);
 }
 
 .sharing-buttons:active {
@@ -38,90 +33,44 @@
     height: 100%;
 }
 
-#url-facebook {
-    background-color: #4862A3;
-}
-
+/* Brand colors */
+#url-facebook    { background-color: #4862A3; }
 #url-twitter,
-#url-linkedin {
-    background-color: #2AAAE0;
-}
+#url-linkedin    { background-color: var(--color-primary); }
+#url-reddit      { background-color: #e00; }
+#url-stumbleupon { background-color: #f14829; }
+#url-pinterest   { background-color: #db3037; }
+#url-email       { background-color: var(--color-neutral); }
+#url-copy        { background-color: var(--color-neutral); cursor: pointer; position: relative; }
+#url-qr          { background-color: var(--color-dark); cursor: pointer; }
 
-#url-reddit {
-    background-color: red;
-}
-
-#url-stumbleupon {
-    background-color: #f14829;
-}
-
-#url-pinterest {
-    background-color: #db3037;
-}
-
-#url-email {
-    background-color: #666;
-}
-
-#url-copy {
-    cursor: pointer;
-    background-color: #666;
-    position: relative;
-}
-
-#url-qr {
-    cursor: pointer;
-    background-color: #333;
-}
-
-#url-facebook:hover {
-    background-color: #3b5190;
-}
-
+/* Brand hover colors (darker shade) */
+#url-facebook:hover    { background-color: #3b5190; }
 #url-twitter:hover,
-#url-linkedin:hover {
-    background-color: #1e8fbf;
-}
-
-#url-reddit:hover {
-    background-color: #cc0000;
-}
-
-#url-stumbleupon:hover {
-    background-color: #d13d20;
-}
-
-#url-pinterest:hover {
-    background-color: #b8272d;
-}
-
+#url-linkedin:hover    { background-color: #1e8fbf; }
+#url-reddit:hover      { background-color: #c00; }
+#url-stumbleupon:hover { background-color: #d13d20; }
+#url-pinterest:hover   { background-color: #b8272d; }
 #url-email:hover,
-#url-copy:hover {
-    background-color: #555;
-}
+#url-copy:hover        { background-color: var(--color-dark-hover); }
+#url-qr:hover          { background-color: #222; }
 
-#url-qr:hover {
-    background-color: #222;
-}
-
-/* Copy Button Specific Styles */
-
+/* Copied tooltip */
 #url-copy span {
     position: absolute;
     bottom: -22px;
     left: 50%;
     transform: translateX(-50%);
-    background: #333;
-    color: #fff;
-    font-size: 10px;
+    background: var(--color-dark);
+    color: var(--color-bg);
+    font-size: var(--font-size-xs);
     padding: 2px 8px;
-    border-radius: 3px;
+    border-radius: var(--radius-sm);
     white-space: nowrap;
     display: none;
 }
 
 /* About */
-
 .about-me {
     margin-top: 1rem;
     text-align: center;
@@ -131,14 +80,9 @@
     text-decoration: none;
     font-size: .8rem;
     font-style: italic;
-    color: #666;
+    color: var(--color-neutral);
 }
 
 .about-me a:hover {
     text-decoration: underline;
-}
-
-.about-me a:focus-visible {
-    outline: 2px solid #2AAAE0;
-    outline-offset: 2px;
 }

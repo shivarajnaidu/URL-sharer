@@ -1,13 +1,69 @@
+:root {
+    /* Colors */
+    --color-primary: #2AAAE0;
+    --color-text: #333;
+    --color-text-muted: #777;
+    --color-text-light: #888;
+    --color-bg: #fff;
+    --color-border: #eee;
+    --color-border-medium: #ccc;
+    --color-dark: #333;
+    --color-dark-hover: #555;
+    --color-danger: #f44336;
+    --color-overlay: rgba(0, 0, 0, 0.6);
+    --color-neutral: #666;
+
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-size-xs: 10px;
+    --font-size-sm: 11px;
+    --font-size-base: 13px;
+    --font-size-md: 14px;
+
+    /* Sizing */
+    --popup-width: 450px;
+    --sharing-layout-width: 420px;
+    --btn-size: 50px;
+    --btn-icon-padding: 12px;
+
+    /* Radius */
+    --radius-sm: 3px;
+    --radius-md: 4px;
+    --radius-lg: 8px;
+    --radius-circle: 50%;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.2s ease;
+
+    /* Focus */
+    --focus-ring: 2px solid var(--color-primary);
+
+    /* Shadows */
+    --shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Shared focus-visible style */
+.tab-btn:focus-visible,
+.sharing-buttons:focus-visible,
+.about-me a:focus-visible,
+#qr-close:focus-visible,
+#recent-list li a:focus-visible,
+#recent-clear:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+}
+
 #popup-container {
-    width: 450px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: #333;
+    width: var(--popup-width);
+    font-family: var(--font-family);
+    color: var(--color-text);
 }
 
 /* Tab bar */
 .tab-bar {
     display: flex;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid var(--color-border);
 }
 
 .tab-btn {
@@ -15,27 +71,26 @@
     padding: 10px 0;
     border: none;
     background: none;
-    font-size: 14px;
+    font-size: var(--font-size-md);
     font-weight: 600;
-    color: #888;
+    color: var(--color-text-light);
     cursor: pointer;
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
-    transition: color 0.2s, border-color 0.2s;
+    transition: color var(--transition-normal), border-color var(--transition-normal);
 }
 
 .tab-btn:hover {
-    color: #555;
+    color: var(--color-dark-hover);
 }
 
 .tab-btn:focus-visible {
-    outline: 2px solid #2AAAE0;
     outline-offset: -2px;
 }
 
 .tab-btn.active {
-    color: #333;
-    border-bottom-color: #2AAAE0;
+    color: var(--color-text);
+    border-bottom-color: var(--color-primary);
 }
 
 .tab-panel.hidden {
