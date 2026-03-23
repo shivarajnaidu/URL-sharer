@@ -1,5 +1,27 @@
 # Changelog
 
+## v1.7 — More Platforms, Dynamic Rendering & Polish
+
+### New Platforms
+- WhatsApp, Instagram, Telegram, Threads, Bluesky, Tumblr, Hacker News
+- Buttons sorted by global popularity (WhatsApp first, legacy platforms last)
+
+### Dynamic Rendering
+- All sharing buttons now rendered from a central registry (`buttons.js`)
+- No hardcoded button HTML — add/remove platforms by editing one array
+- Settings and social modules import from the same registry
+
+### Fixes
+- Twitter/X brand color updated to black (`#000`) with proper hover
+- LinkedIn given its own official blue (`#0A66C2`)
+- StumbleUpon icon replaced with correct logo from Wikimedia Commons
+- Telegram, Threads, Tumblr, Hacker News icons sourced from Wikimedia/Simple Icons
+- Removed Pocket (service shut down July 2025)
+- Footer separated from button grid into its own row
+
+### Layout
+- 6-column CSS Grid for sharing buttons
+
 ## v1.6 — Recent Shares & UI Overhaul
 
 ### New Features

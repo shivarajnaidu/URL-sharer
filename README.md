@@ -6,7 +6,7 @@ A browser extension to quickly share the current page URL on social networks, vi
 
 ## Features
 
-- **Share** the current tab URL on Facebook, Twitter, Reddit, LinkedIn, StumbleUpon, Pinterest, or via Email
+- **16 sharing platforms** — WhatsApp, Facebook, Instagram, Twitter/X, Telegram, LinkedIn, Reddit, Pinterest, Threads, Bluesky, Tumblr, Hacker News, StumbleUpon, Email and Much more
 - **Copy** the URL (with optional selected text) to clipboard
 - **QR Code** overlay for the current page
 - **Recent tab** — keeps the last 10 shared URLs in local storage (no server, no sync)
@@ -69,6 +69,7 @@ js/
   index.js               # Entry point — initializes tabs, sharing, recent, settings
   bundle.js              # Auto-generated esbuild bundle (gitignored)
   modules/
+    buttons.js           # Central button registry & dynamic DOM renderer
     social.js            # Social sharing button URLs and click handlers
     copy.js              # Copy-to-clipboard logic
     qr.js                # QR code overlay
