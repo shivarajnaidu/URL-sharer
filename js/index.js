@@ -14,6 +14,7 @@ This program is free software: you can redistribute it and/or modify
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import { renderButtons } from './modules/buttons.js';
 import { initSocialButtons } from './modules/social.js';
 import { initCopyButton } from './modules/copy.js';
 import { initQRButton } from './modules/qr.js';
@@ -46,6 +47,10 @@ function initTabs() {
     const tabUrl = tab.url;
     const tabTitle = tab.title;
     const selectedText = await getSelectedText();
+
+    // Render buttons from central registry
+    const container = document.getElementById('social-sharing-link-container-layout');
+    renderButtons(container);
 
     initSocialButtons(tabUrl, tabTitle, selectedText);
     initCopyButton(tabUrl, selectedText, tabTitle);

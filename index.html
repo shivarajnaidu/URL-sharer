@@ -16,47 +16,34 @@
 
 <body>
     <div id="popup-container">
-    <div class="tab-bar" role="tablist">
-        <button class="tab-btn active" data-tab="share" role="tab" aria-selected="true" aria-controls="tab-share" id="tab-btn-share">Share</button>
-        <button class="tab-btn" data-tab="recent" role="tab" aria-selected="false" aria-controls="tab-recent" id="tab-btn-recent">Recent</button>
-        <button class="tab-btn" data-tab="settings" role="tab" aria-selected="false" aria-controls="tab-settings" id="tab-btn-settings">Settings</button>
-    </div>
+        <div class="tab-bar" role="tablist">
+            <button class="tab-btn active" data-tab="share" role="tab" aria-selected="true" aria-controls="tab-share"
+                id="tab-btn-share">Share</button>
+            <button class="tab-btn" data-tab="recent" role="tab" aria-selected="false" aria-controls="tab-recent"
+                id="tab-btn-recent">Recent</button>
+            <button class="tab-btn" data-tab="settings" role="tab" aria-selected="false" aria-controls="tab-settings"
+                id="tab-btn-settings">Settings</button>
+        </div>
 
-    <div id="tab-share" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-share">
-    <div id="social-sharing-link-container-layout">
-        <a class="sharing-buttons" id="url-facebook" title="Share On Facebook"><img decoding="async" src="icons/svg/facebook.svg" alt="Facebook"></a>
-        <a class="sharing-buttons" id="url-twitter" title="Share On Twitter"><img decoding="async" src="icons/svg/twitter.svg" alt="Twitter"></a>
-        <a class="sharing-buttons" id="url-reddit" title="Share On Reddit"><img decoding="async" src="icons/svg/reddit.svg" alt="Reddit"></a>
-        <a class="sharing-buttons" id="url-linkedin" title="Share On Linkedin"><img decoding="async" src="icons/svg/linkedin.svg" alt="LinkedIn"></a>
-        <a class="sharing-buttons" id="url-stumbleupon" title="Share On Stumbleupon"><img decoding="async" src="icons/svg/stumbleupon.svg" alt="StumbleUpon"></a>
-        <a class="sharing-buttons" id="url-pinterest" title="Share On Pinterest"><img decoding="async" src="icons/svg/pinterest.svg" alt="Pinterest"></a>
-        <a class="sharing-buttons" id="url-email" title="Share via email"><img decoding="async" src="icons/svg/email.svg" alt="Email"></a>
-        <a class="sharing-buttons" id="url-copy" title="Copy And Share" role="button" tabindex="0"><img decoding="async" src="icons/svg/copy.svg" alt="Copy"><span aria-live="polite">Copied !</span></a>
-        <a class="sharing-buttons" id="url-qr" title="Show QR Code" role="button" tabindex="0"><img decoding="async" src="icons/svg/qrcode.svg" alt="QR Code"></a>
-
-        <div id="qr-overlay" class="qr-overlay hidden">
-            <div class="qr-container">
-                <canvas id="qr-canvas"></canvas>
-                <button id="qr-close" aria-label="Close QR code">&times;</button>
+        <div id="tab-share" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-share">
+            <div id="social-sharing-link-container-layout">
+                <!-- Buttons rendered dynamically by js/modules/buttons.js -->
+            </div>
+            <div class="about-me">
+                <a href="https://github.com/shivarajnaidu/URL-sharer">URL sharer</a> By <a
+                    href="https://www.linkedin.com/in/shivarajnaidu/">Yuvaraj V</a>
             </div>
         </div>
 
-        <div class="about-me">
-            <a href="https://github.com/shivarajnaidu/URL-sharer">URL sharer</a> By <a
-                href="https://www.linkedin.com/in/shivarajnaidu/">Yuvaraj V</a>
+        <div id="tab-recent" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-recent">
+            <ul id="recent-list"></ul>
+            <p id="recent-empty" class="hidden">No recent shares yet.</p>
+            <button id="recent-clear" class="hidden" aria-label="Clear all recent shares">Clear All</button>
         </div>
-    </div>
-    </div>
 
-    <div id="tab-recent" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-recent">
-        <ul id="recent-list"></ul>
-        <p id="recent-empty" class="hidden">No recent shares yet.</p>
-        <button id="recent-clear" class="hidden" aria-label="Clear all recent shares">Clear All</button>
-    </div>
-
-    <div id="tab-settings" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-settings">
-        <ul id="settings-list"></ul>
-    </div>
+        <div id="tab-settings" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-settings">
+            <ul id="settings-list"></ul>
+        </div>
     </div>
 
 </body>

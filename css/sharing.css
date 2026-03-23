@@ -2,16 +2,19 @@
     padding: 15px;
     width: var(--sharing-layout-width);
     max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    justify-items: center;
 }
 
 .sharing-buttons {
     border-radius: var(--radius-circle);
     border: 2px solid transparent;
     box-sizing: border-box;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px;
     text-decoration: none;
     width: var(--btn-size);
     height: var(--btn-size);
@@ -35,24 +38,38 @@
 
 /* Brand colors */
 #url-facebook    { background-color: #4862A3; }
-#url-twitter,
-#url-linkedin    { background-color: var(--color-primary); }
+#url-twitter     { background-color: #000; }
+#url-linkedin    { background-color: #0A66C2; }
 #url-reddit      { background-color: #e00; }
 #url-stumbleupon { background-color: #f14829; }
 #url-pinterest   { background-color: #db3037; }
 #url-email       { background-color: var(--color-neutral); }
+#url-whatsapp    { background-color: #25D366; }
+#url-bluesky     { background-color: #0085FF; }
+#url-instagram   { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+#url-telegram    { background-color: #0088cc; }
+#url-threads     { background-color: #000; }
+#url-tumblr      { background-color: #35465c; }
+#url-hackernews  { background-color: #ff6600; }
 #url-copy        { background-color: var(--color-neutral); cursor: pointer; position: relative; }
 #url-qr          { background-color: var(--color-dark); cursor: pointer; }
 
 /* Brand hover colors (darker shade) */
 #url-facebook:hover    { background-color: #3b5190; }
-#url-twitter:hover,
-#url-linkedin:hover    { background-color: #1e8fbf; }
+#url-twitter:hover     { background-color: #333; }
+#url-linkedin:hover    { background-color: #084d93; }
 #url-reddit:hover      { background-color: #c00; }
 #url-stumbleupon:hover { background-color: #d13d20; }
 #url-pinterest:hover   { background-color: #b8272d; }
 #url-email:hover,
 #url-copy:hover        { background-color: var(--color-dark-hover); }
+#url-whatsapp:hover    { background-color: #1ebe57; }
+#url-bluesky:hover     { background-color: #0070d6; }
+#url-instagram:hover   { background: linear-gradient(45deg, #d6832d, #cc5c35, #c2223b, #b31f5b, #a51579); }
+#url-telegram:hover    { background-color: #0077b3; }
+#url-threads:hover     { background-color: #333; }
+#url-tumblr:hover      { background-color: #2b3a4d; }
+#url-hackernews:hover  { background-color: #e55b00; }
 #url-qr:hover          { background-color: #222; }
 
 /* Copied tooltip */
