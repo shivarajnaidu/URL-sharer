@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/sharing.css">
     <link rel="stylesheet" href="css/qr.css">
     <link rel="stylesheet" href="css/recent.css">
+    <link rel="stylesheet" href="css/settings.css">
     <script src="js/bundle.js"></script>
 </head>
 
@@ -18,6 +19,7 @@
     <div class="tab-bar" role="tablist">
         <button class="tab-btn active" data-tab="share" role="tab" aria-selected="true" aria-controls="tab-share" id="tab-btn-share">Share</button>
         <button class="tab-btn" data-tab="recent" role="tab" aria-selected="false" aria-controls="tab-recent" id="tab-btn-recent">Recent</button>
+        <button class="tab-btn" data-tab="settings" role="tab" aria-selected="false" aria-controls="tab-settings" id="tab-btn-settings">Settings</button>
     </div>
 
     <div id="tab-share" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-share">
@@ -50,6 +52,10 @@
         <ul id="recent-list"></ul>
         <p id="recent-empty" class="hidden">No recent shares yet.</p>
         <button id="recent-clear" class="hidden" aria-label="Clear all recent shares">Clear All</button>
+    </div>
+
+    <div id="tab-settings" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-settings">
+        <ul id="settings-list"></ul>
     </div>
     </div>
 

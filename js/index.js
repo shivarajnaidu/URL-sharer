@@ -20,6 +20,7 @@ import { initQRButton } from './modules/qr.js';
 import { getSelectedText } from './modules/selection.js';
 import { saveRecentUrl } from './modules/recent.js';
 import { initRecentTab } from './modules/recent-ui.js';
+import { initSettingsTab } from './modules/settings-ui.js';
 
 function initTabs() {
     const btns = document.querySelectorAll('.tab-btn');
@@ -60,4 +61,5 @@ function initTabs() {
 
     initTabs();
     initRecentTab();
+    await initSettingsTab();
 })();
