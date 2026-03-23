@@ -2,7 +2,16 @@
 
 Share Everything You Want To Share.
 
-A browser extension to quickly share the current page URL on social networks, via email, copy to clipboard, or as a QR code.
+A browser extension to quickly share the current page URL on social networks, via email, copy to clipboard, or as a QR code — with a built-in recent shares history and customizable button visibility.
+
+## Features
+
+- **Share** the current tab URL on Facebook, Twitter, Reddit, LinkedIn, StumbleUpon, Pinterest, or via Email
+- **Copy** the URL (with optional selected text) to clipboard
+- **QR Code** overlay for the current page
+- **Recent tab** — keeps the last 10 shared URLs in local storage (no server, no sync)
+- **Settings tab** — toggle which sharing buttons are visible; preferences persist across sessions
+- Full keyboard navigation and screen-reader support (ARIA roles, focus-visible outlines)
 
 ## Install
 
@@ -27,7 +36,7 @@ cd URL-sharer
 npm install
 ```
 
-`npm install` automatically runs the build step (`postinstall`), which bundles the QR code library into `js/qrcode.min.js` from `node_modules`. This file is gitignored and must be generated locally.
+`npm install` automatically runs the build step (`postinstall`), which bundles `js/index.js` and its modules into `js/bundle.js` via esbuild.
 
 To rebuild manually at any time:
 
@@ -53,33 +62,38 @@ After loading, click the extension icon in the toolbar to open the popup.
 ### Project structure
 
 ```
-manifest.json          # Extension manifest (v2)
-index.html             # Popup UI (inline SVG icons)
-background-script.js   # Background script
+manifest.json            # Extension manifest (v3)
+index.html               # Popup UI (three tabs: Share, Recent, Settings)
+background-script.js     # Background service worker
 js/
-  index.js             # Popup logic (sharing buttons, copy, QR)
-  qrcode.min.js        # Auto-generated QR code bundle (gitignored)
+  index.js               # Entry point — initializes tabs, sharing, recent, settings
+  bundle.js              # Auto-generated esbuild bundle (gitignored)
+  modules/
+    social.js            # Social sharing button URLs and click handlers
+    copy.js              # Copy-to-clipboard logic
+    qr.js                # QR code overlay
+    selection.js         # Get selected text from active tab
+    recent.js            # Recent shares storage (chrome.storage.local)
+    recent-ui.js         # Recent tab rendering and clear button
+    settings.js          # Button visibility storage (chrome.storage.local)
+    settings-ui.js       # Settings tab rendering and toggle handlers
 css/
-  sharer.css           # Popup styles
-icons/                 # Extension icons
+  layout.css             # CSS variables, popup container, tab bar
+  sharing.css            # Social button styles, brand colors, about section
+  qr.css                 # QR code overlay styles
+  recent.css             # Recent list styles
+  settings.css           # Settings toggle list styles
+icons/                   # Extension icons and SVG social icons
 ```
 
 ## Publishing
 
 ### Chrome Web Store
 
-1. Ensure `npm install` has been run (so `js/qrcode.min.js` exists)
-2. Create a zip of the extension files (excluding dev/build files):
+1. Ensure `npm install` has been run (so `js/bundle.js` exists)
+2. Create a zip of the extension files:
    ```bash
-   zip -r url-sharer.zip manifest.json index.html background-script.js js/ css/ fonts/ icons/ -x "js/qrcode.min.js"
-   ```
-   Then add the built file:
-   ```bash
-   zip url-sharer.zip js/qrcode.min.js
-   ```
-   Or simply zip everything needed in one step:
-   ```bash
-   zip -r url-sharer.zip manifest.json index.html background-script.js js/index.js js/qrcode.min.js css/ icons/
+   zip -r url-sharer.zip manifest.json index.html background-script.js js/bundle.js css/ icons/
    ```
 3. Go to the [Chrome Developer Dashboard](https://chrome.google.com/webstore/devconsole)
 4. Upload `url-sharer.zip`
@@ -97,6 +111,12 @@ icons/                 # Extension icons
 ## Contributing
 
 Any contributions are appreciated.
+
+## Sponsor
+
+If you find this extension useful, consider supporting the project:
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?logo=github)](https://github.com/sponsors/shivarajnaidu/)
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/shivarajnaidu)
 
