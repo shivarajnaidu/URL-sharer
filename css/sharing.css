@@ -41,7 +41,6 @@
 #url-twitter     { background-color: #000; }
 #url-linkedin    { background-color: #0A66C2; }
 #url-reddit      { background-color: #e00; }
-#url-stumbleupon { background-color: #f14829; }
 #url-pinterest   { background-color: #db3037; }
 #url-email       { background-color: var(--color-neutral); }
 #url-whatsapp    { background-color: #25D366; }
@@ -59,7 +58,6 @@
 #url-twitter:hover     { background-color: #333; }
 #url-linkedin:hover    { background-color: #084d93; }
 #url-reddit:hover      { background-color: #c00; }
-#url-stumbleupon:hover { background-color: #d13d20; }
 #url-pinterest:hover   { background-color: #b8272d; }
 #url-email:hover,
 #url-copy:hover        { background-color: var(--color-dark-hover); }

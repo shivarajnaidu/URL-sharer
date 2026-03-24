@@ -6,7 +6,7 @@ A browser extension to quickly share the current page URL on social networks, vi
 
 ## Features
 
-- **16 sharing platforms** — WhatsApp, Facebook, Instagram, Twitter/X, Telegram, LinkedIn, Reddit, Pinterest, Threads, Bluesky, Tumblr, Hacker News, StumbleUpon, Email and Much more
+- **15 sharing platforms** — WhatsApp, Facebook, Instagram, Twitter/X, Telegram, LinkedIn, Reddit, Pinterest, Threads, Bluesky, Tumblr, Hacker News, Email and much more
 - **Copy** the URL (with optional selected text) to clipboard
 - **QR Code** overlay for the current page
 - **Recent tab** — keeps the last 10 shared URLs in local storage (no server, no sync)

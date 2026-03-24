@@ -47,7 +47,6 @@ export function initSocialButtons(tabUrl = '', tabTitle = '', selectedText = '')
         { id: 'url-bluesky', href: `https://bsky.app/intent/compose?text=${encodedText}%20${encodedUrl}` },
         { id: 'url-tumblr', href: `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${encodedUrl}&title=${encodedText}` },
         { id: 'url-hackernews', href: `https://news.ycombinator.com/submitlink?u=${encodedUrl}&t=${encodedText}` },
-        { id: 'url-stumbleupon', href: `http://www.stumbleupon.com/submit?url=${encodedUrl}&title=${encodedText}` },
         { id: 'url-email', href: `mailto:?subject=${encodedTitle}&body=${encodedText}%0A${encodedUrl}` },
     ];
 

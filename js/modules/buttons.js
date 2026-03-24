@@ -15,7 +15,6 @@ const BUTTONS = [
     { id: 'url-bluesky',     label: 'Bluesky',      icon: 'bluesky',     title: 'Share On Bluesky' },
     { id: 'url-tumblr',      label: 'Tumblr',       icon: 'tumblr',      title: 'Share On Tumblr' },
     { id: 'url-hackernews',  label: 'Hacker News',  icon: 'hackernews',  title: 'Share On Hacker News' },
-    { id: 'url-stumbleupon', label: 'StumbleUpon',  icon: 'stumbleupon', title: 'Share On StumbleUpon' },
     { id: 'url-email',       label: 'Email',        icon: 'email',       title: 'Share via Email' },
     { id: 'url-copy',        label: 'Copy',         icon: 'copy',        title: 'Copy And Share',  utility: true },
     { id: 'url-qr',          label: 'QR Code',      icon: 'qrcode',      title: 'Show QR Code',    utility: true },
