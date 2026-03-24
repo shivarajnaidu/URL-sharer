@@ -92,16 +92,22 @@
 }
 
 #review-link {
-    display: inline-block;
+    display: block;
     margin-bottom: 6px;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-style: normal;
-    color: var(--color-primary);
+    color: var(--color-text-muted);
     cursor: pointer;
+    text-decoration: none;
 }
 
 #review-link:hover {
+    color: var(--color-primary);
     text-decoration: underline;
+}
+
+#review-link.hidden {
+    display: none;
 }
 
 .about-me a {

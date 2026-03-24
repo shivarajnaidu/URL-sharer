@@ -33,3 +33,10 @@
     outline: var(--focus-ring);
     outline-offset: 2px;
 }
+
+.version-info {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin: 8px 0 4px;
+}

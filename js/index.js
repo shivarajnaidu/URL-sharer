@@ -22,6 +22,7 @@ import { getSelectedText } from './modules/selection.js';
 import { saveRecentUrl } from './modules/recent.js';
 import { initRecentTab } from './modules/recent-ui.js';
 import { initSettingsTab } from './modules/settings-ui.js';
+import { initReviewPrompt } from './modules/review.js';
 
 function initTabs() {
     const btns = document.querySelectorAll('.tab-btn');
@@ -67,13 +68,11 @@ function initTabs() {
     initTabs();
     initRecentTab();
     await initSettingsTab();
+    await initReviewPrompt();
 
-    // Set review link based on browser
-    const reviewLink = document.getElementById('review-link');
-    if (reviewLink) {
-        const isFirefox = typeof browser !== 'undefined' && browser.runtime?.id;
-        reviewLink.href = isFirefox
-            ? 'https://addons.mozilla.org/en-US/firefox/addon/url-sharer/reviews/'
-            : 'https://chrome.google.com/webstore/detail/url-sharer/efbabpfmnagdngganefofhopnoddbmae/reviews';
+    // Show version from manifest
+    const versionEl = document.getElementById('version-number');
+    if (versionEl) {
+        versionEl.textContent = chrome.runtime.getManifest().version;
     }
 })();

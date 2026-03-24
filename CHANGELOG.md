@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.7.3 — Review Prompt & Version Display
+
+- Added subtle review prompt
+- Review link auto-detects Firefox vs Chrome and opens the correct store page
+- Added version number display in the Settings tab (pulled from manifest)
+
+
 ## v1.7.2 — Firefox Popup Fix
 
 - Fixed popup collapsing to ~90px on Firefox desktop due to `100vw` media query override
