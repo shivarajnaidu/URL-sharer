@@ -8,7 +8,7 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "url-sharer@yuvaraj",
+      "id": "{93dbc0d9-2f77-4aa8-a727-8dca5ebeb917}",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
         "required": ["none"]
