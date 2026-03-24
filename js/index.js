@@ -67,4 +67,13 @@ function initTabs() {
     initTabs();
     initRecentTab();
     await initSettingsTab();
+
+    // Set review link based on browser
+    const reviewLink = document.getElementById('review-link');
+    if (reviewLink) {
+        const isFirefox = typeof browser !== 'undefined' && browser.runtime?.id;
+        reviewLink.href = isFirefox
+            ? 'https://addons.mozilla.org/en-US/firefox/addon/url-sharer/reviews/'
+            : 'https://chrome.google.com/webstore/detail/url-sharer/efbabpfmnagdngganefofhopnoddbmae/reviews';
+    }
 })();
