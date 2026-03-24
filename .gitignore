@@ -57,6 +57,25 @@ typings/
 # dotenv environment variables file
 .env
 
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+._*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Extension packages
+*.xpi
+*.crx
+*.zip
+web-ext-artifacts/
+
 # Compiled Files
 build
 dist
