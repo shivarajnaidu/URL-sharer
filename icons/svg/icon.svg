@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect x="4" y="4" width="120" height="120" rx="24" ry="24" fill="#2e7d32"/>
+  <path d="
+    M88 19a15 15 0 1 1 0 30 15 15 0 1 1 0-30z
+    M88 79a15 15 0 1 1 0 30 15 15 0 1 1 0-30z
+    M36 49a15 15 0 1 1 0 30 15 15 0 1 1 0-30z
+    M48 58 L78 40
+    M48 70 L78 88
+  " fill="#fff" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill-rule="evenodd"/>
+</svg>

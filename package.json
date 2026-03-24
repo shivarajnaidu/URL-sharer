@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "esbuild js/index.js --bundle --outfile=js/bundle.js --format=iife --minify",
+    "pack": "npm run build && mkdir -p dist && zip -r dist/url-sharer-$npm_package_version.zip manifest.json index.html background-script.js css/ icons/ js/bundle.js LICENSE",
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
