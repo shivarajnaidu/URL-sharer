@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.7.2 — Firefox Popup Fix
+
+- Fixed popup collapsing to ~90px on Firefox desktop due to `100vw` media query override
+- Moved `min-width` from `:root` to `#popup-container`
+- Mobile media query now properly resets sizing for small screens
+
 ## v1.7.1 — Remove StumbleUpon
 
 - Removed StumbleUpon (service shut down in 2018) — button, share URL, icon, and CSS removed

@@ -1,6 +1,6 @@
 {
   "name": "url-sharer",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Share Everything You Want To Share",
   "dependencies": {
     "qrcode": "^1.5.4"
