@@ -1,8 +1,7 @@
 {
   "name": "url-sharer",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Share Everything You Want To Share",
-  "main": "gulpfile.js",
   "dependencies": {
     "qrcode": "^1.5.4"
   },

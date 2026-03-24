@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.7.1 — Remove StumbleUpon
+
+- Removed StumbleUpon (service shut down in 2018) — button, share URL, icon, and CSS removed
+- Platform count updated to 15
+
 ## v1.7 — More Platforms, Dynamic Rendering & Polish
 
 ### New Platforms
