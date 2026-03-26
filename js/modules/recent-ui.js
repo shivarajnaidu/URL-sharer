@@ -1,5 +1,11 @@
 import { getRecentUrls, clearRecentUrls } from './recent.js';
 
+/**
+ * Fetch recently shared URLs from storage and render them as a list.
+ * Shows an empty-state message when there are no entries, or a clear
+ * button and timestamped links when entries exist.
+ * @returns {Promise<void>}
+ */
 async function renderRecent() {
     const list = document.getElementById('recent-list');
     const empty = document.getElementById('recent-empty');
@@ -29,6 +35,12 @@ async function renderRecent() {
     });
 }
 
+/**
+ * Initialise the "Recent" tab.
+ * Renders saved URLs on load, wires up the clear button,
+ * and re-fetches entries whenever the tab is switched to.
+ * @returns {void}
+ */
 export function initRecentTab() {
     renderRecent();
 

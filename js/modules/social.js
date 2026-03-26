@@ -1,12 +1,20 @@
-/*
- * Send Message To Background Script
+/**
+ * Send a message to the background service worker.
+ * @param {string} type - The message type identifier.
+ * @param {Object} data - The payload to send with the message.
+ * @returns {void}
  */
 export function sendMessage(type, data) {
     chrome.runtime.sendMessage({ type, data });
 }
 
-/*
- * Assign URLs To Respective Element
+/**
+ * Assign a sharing URL to a button element, opening it in a new tab
+ * on click and notifying the background script of the new tab ID.
+ * @param {Object} btn - A button descriptor.
+ * @param {string} btn.id - The DOM element ID of the button.
+ * @param {string} btn.href - The sharing URL to open.
+ * @returns {void}
  */
 function urlAssigner(btn = {}) {
     const { id, href } = btn;
@@ -23,8 +31,13 @@ function urlAssigner(btn = {}) {
     });
 }
 
-/*
- * Make Social Button Objects
+/**
+ * Initialise all social-sharing buttons by building their share URLs
+ * and attaching click handlers that open the URL in a new tab.
+ * @param {string} [tabUrl=''] - The URL of the active tab.
+ * @param {string} [tabTitle=''] - The title of the active tab.
+ * @param {string} [selectedText=''] - User-highlighted text on the page.
+ * @returns {void}
  */
 export function initSocialButtons(tabUrl = '', tabTitle = '', selectedText = '') {
     const shareText = selectedText

@@ -1,7 +1,12 @@
 import QRCode from 'qrcode';
 
-/*
- * QR Code overlay
+/**
+ * Initialise the QR code button and overlay.
+ * Clicking the button generates a QR code for the given URL and shows it
+ * in a modal overlay. The overlay can be dismissed by clicking the close
+ * button or clicking outside the QR container.
+ * @param {string} url - The URL to encode as a QR code.
+ * @returns {void}
  */
 export function initQRButton(url) {
     const btn = document.querySelector('#url-qr');

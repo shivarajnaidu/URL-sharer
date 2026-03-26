@@ -24,6 +24,12 @@ import { initRecentTab } from './modules/recent-ui.js';
 import { initSettingsTab } from './modules/settings-ui.js';
 import { initReviewPrompt } from './modules/review.js';
 
+/**
+ * Wire up the tab-switching UI.
+ * Adds click listeners to `.tab-btn` elements that toggle the active
+ * tab panel (via `data-tab` / `tab-<name>` ID convention).
+ * @returns {void}
+ */
 function initTabs() {
     const btns = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.tab-panel');
@@ -41,6 +47,13 @@ function initTabs() {
     });
 }
 
+/**
+ * Main entry point — runs when the popup is opened.
+ * Queries the active tab, renders sharing buttons, initialises every
+ * module (social links, copy, QR, recent, settings, review), and
+ * displays the extension version.
+ * @returns {Promise<void>}
+ */
 (async function init() {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab) return;

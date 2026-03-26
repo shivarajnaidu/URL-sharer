@@ -1,6 +1,16 @@
 /**
+ * @typedef {Object} ButtonDescriptor
+ * @property {string} id       - DOM element ID for the button.
+ * @property {string} label    - Human-readable label shown in settings.
+ * @property {string} icon     - SVG filename (without extension) inside icons/svg/.
+ * @property {string} title    - Tooltip text (title attribute).
+ * @property {boolean} [utility] - If `true`, the button is a utility (not a social share link).
+ */
+
+/**
  * Central button registry — single source of truth for all sharing buttons.
  * HTML rendering, social.js URLs, and settings.js all derive from this list.
+ * @type {ButtonDescriptor[]}
  */
 const BUTTONS = [
     { id: 'url-whatsapp',    label: 'WhatsApp',     icon: 'whatsapp',    title: 'Share On WhatsApp' },
@@ -24,6 +34,9 @@ export { BUTTONS };
 
 /**
  * Render all sharing buttons into the given container element.
+ * Also appends the QR code overlay markup.
+ * @param {HTMLElement} container - The parent element to append buttons into.
+ * @returns {void}
  */
 export function renderButtons(container) {
     for (const btn of BUTTONS) {
