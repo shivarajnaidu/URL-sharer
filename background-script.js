@@ -1,5 +1,3 @@
-'use strict';
-
 async function getOpenedTabIDs() {
     const data = await chrome.storage.session.get('openedTabIDs');
     return data.openedTabIDs || [];
