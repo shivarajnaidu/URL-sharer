@@ -15,11 +15,10 @@ This program is free software: you can redistribute it and/or modify
 */
 
 import { renderButtons } from './modules/buttons.js';
-import { initSocialButtons } from './modules/social.js';
+import { initSocialButtons, sendMessage } from './modules/social.js';
 import { initCopyButton } from './modules/copy.js';
 import { initQRButton } from './modules/qr.js';
 import { getSelectedText } from './modules/selection.js';
-import { saveRecentUrl } from './modules/recent.js';
 import { initRecentTab } from './modules/recent-ui.js';
 import { initSettingsTab } from './modules/settings-ui.js';
 import { initReviewPrompt } from './modules/review.js';
@@ -70,11 +69,12 @@ function initTabs() {
     initCopyButton(tabUrl, selectedText, tabTitle);
     initQRButton(tabUrl);
 
-    // Save to recent only when user actually clicks a sharing button
+    // Delegate saving to the background script so storage writes
+    // survive even if the popup closes before the write completes.
     document.getElementById('social-sharing-link-container-layout')
         .addEventListener('click', (e) => {
             if (e.target.closest('.sharing-buttons')) {
-                saveRecentUrl(tabUrl, tabTitle);
+                sendMessage('save-recent-url', { url: tabUrl, title: tabTitle });
             }
         });
 

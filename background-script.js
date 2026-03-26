@@ -74,6 +74,34 @@ async function closeTab(id) {
     await saveOpenedTabIDs(ids);
 }
 
+// --- Recent URL persistence ---
+
+/** @constant {string} Storage key for the recent URLs array. */
+const RECENT_STORAGE_KEY = 'recentSharedUrls';
+/** @constant {number} Maximum number of recent entries to keep. */
+const MAX_RECENT = 10;
+
+/**
+ * Save a shared URL to the recent list in local storage.
+ * Duplicates are removed and the newest entry is placed first.
+ * The list is capped at {@link MAX_RECENT} entries.
+ * @param {string} url - The URL that was shared.
+ * @param {string} title - The page title at the time of sharing.
+ * @returns {Promise<void>}
+ */
+async function saveRecentUrl(url, title) {
+    const { [RECENT_STORAGE_KEY]: existing = [] } = await chrome.storage.local.get(RECENT_STORAGE_KEY);
+    const entry = { url, title, timestamp: Date.now() };
+
+    // Remove duplicate if already present
+    const filtered = existing.filter(e => e.url !== url);
+    filtered.unshift(entry);
+
+    await chrome.storage.local.set({
+        [RECENT_STORAGE_KEY]: filtered.slice(0, MAX_RECENT)
+    });
+}
+
 // --- Event listeners ---
 
 // Listen for messages from the popup/content scripts.
@@ -85,6 +113,13 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             ids.push(id);
             saveOpenedTabIDs(ids);
         });
+    }
+
+    // Popup delegates recent-URL saving to the background to keep storage
+    // writes out of the short-lived popup context.
+    if (request.type === 'save-recent-url') {
+        const { url, title } = request.data;
+        saveRecentUrl(url, title);
     }
 });
 
