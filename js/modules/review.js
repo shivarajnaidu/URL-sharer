@@ -2,13 +2,27 @@
 const REVIEW_KEY = 'reviewPrompt';
 
 /**
- * Return the appropriate review URL for the current browser.
- * @returns {string} Review page URL (Firefox Add-ons or Chrome Web Store).
+ * Detect the current browser environment.
+ * @returns {Promise<'firefox' | 'chrome' | 'unknown'>}
  */
-function getReviewUrl() {
-    console.log(browser.runtime)
-    const isFirefox = typeof browser !== 'undefined' && browser.runtime?.id;
-    return isFirefox
+export async function getBrowser() {
+    if (typeof browser !== 'undefined' && browser.runtime?.getBrowserInfo) {
+        return 'firefox';
+    }
+    
+    if (typeof chrome !== 'undefined' && chrome.runtime) {
+        return 'chrome';
+    }
+    return 'unknown';
+}
+
+/**
+ * Return the appropriate review URL for the current browser.
+ * @returns {Promise<string>} Review page URL (Firefox Add-ons or Chrome Web Store).
+ */
+async function getReviewUrl() {
+    const currentBrowser = await getBrowser();
+    return currentBrowser === 'firefox'
         ? 'https://addons.mozilla.org/en-US/firefox/addon/url-sharer/reviews/'
         : 'https://chrome.google.com/webstore/detail/url-sharer/efbabpfmnagdngganefofhopnoddbmae/reviews';
 }
@@ -35,7 +49,7 @@ export async function initReviewPrompt() {
     const link = document.getElementById('review-link');
     if (!link) return;
 
-    link.href = getReviewUrl();
+    link.href = await getReviewUrl();
     link.classList.remove('hidden');
 
     link.addEventListener('click', async () => {
