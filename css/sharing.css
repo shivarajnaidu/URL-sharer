@@ -87,7 +87,8 @@
 
 /* About */
 .about-me {
-    margin-top: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
     text-align: center;
 }
 

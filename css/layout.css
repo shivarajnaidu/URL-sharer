@@ -104,6 +104,19 @@
     display: none;
 }
 
+.tab-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#popup-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 /* Mobile / small screen (Firefox Android) */
 @media (max-width: 480px) {
     :root {

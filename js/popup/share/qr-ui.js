@@ -11,6 +11,12 @@ export function renderQRCodePopupUI(container) {
     overlay.innerHTML =
         '<div class="qr-container">' +
             '<canvas id="qr-canvas"></canvas>' +
+            '<button id="qr-download" aria-label="Download QR code">' +
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+                    '<path d="M12 3v13M7 11l5 5 5-5"/>' +
+                    '<path d="M5 21h14"/>' +
+                '</svg>' +
+            '</button>' +
             '<button id="qr-close" aria-label="Close QR code">&times;</button>' +
         '</div>';
     container.appendChild(overlay);
@@ -30,6 +36,7 @@ export function initQRButton(url) {
     const overlay = document.querySelector('#qr-overlay');
     const canvas = document.querySelector('#qr-canvas');
     const closeBtn = document.querySelector('#qr-close');
+    const downloadBtn = document.querySelector('#qr-download');
 
     btn.addEventListener('click', async () => {
         const { default: QRCode } = await import('../../vendor/qrcode.js');
@@ -37,6 +44,13 @@ export function initQRButton(url) {
             if (err) console.error(err);
         });
         overlay.classList.remove('hidden');
+    });
+
+    downloadBtn.addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.download = `qrcode_${Date.now()}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
     });
 
     closeBtn.addEventListener('click', () => {

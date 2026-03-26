@@ -47,3 +47,25 @@
 #qr-close:hover {
     background: var(--color-dark-hover);
 }
+
+#qr-download {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-circle);
+    border: none;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color var(--transition-normal);
+}
+
+#qr-download:hover {
+    background: #1a8fbf;
+}
