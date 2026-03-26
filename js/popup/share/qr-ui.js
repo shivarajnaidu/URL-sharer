@@ -1,4 +1,22 @@
 /**
+ * Create and append the QR code overlay markup to the given container.
+ * Must be called before `initQRButton` so the overlay elements exist in the DOM.
+ * @param {HTMLElement} container - The element to append the overlay into.
+ * @returns {void}
+ */
+export function renderQRCodePopupUI(container) {
+    const overlay = document.createElement('div');
+    overlay.id = 'qr-overlay';
+    overlay.className = 'qr-overlay hidden';
+    overlay.innerHTML =
+        '<div class="qr-container">' +
+            '<canvas id="qr-canvas"></canvas>' +
+            '<button id="qr-close" aria-label="Close QR code">&times;</button>' +
+        '</div>';
+    container.appendChild(overlay);
+}
+
+/**
  * Initialise the QR code button and overlay.
  * Clicking the button generates a QR code for the given URL and shows it
  * in a modal overlay. The QRCode library is lazy-loaded on first click.

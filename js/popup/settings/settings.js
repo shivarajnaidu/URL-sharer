@@ -1,4 +1,4 @@
-import { BUTTONS } from '../share/buttons.js';
+import { BUTTONS } from '../share/social-buttons/buttons.js';
 
 /** @constant {string} Storage key for button visibility preferences. */
 const SETTINGS_KEY = 'sharingButtonVisibility';

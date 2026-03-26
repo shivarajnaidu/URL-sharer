@@ -1,20 +1,7 @@
+import { getBrowser } from './utils.js';
+
 /** @constant {string} Storage key for the review-prompt state. */
 const REVIEW_KEY = 'reviewPrompt';
-
-/**
- * Detect the current browser environment.
- * @returns {Promise<'firefox' | 'chrome' | 'unknown'>}
- */
-export async function getBrowser() {
-    if (typeof browser !== 'undefined' && browser.runtime?.getBrowserInfo) {
-        return 'firefox';
-    }
-    
-    if (typeof chrome !== 'undefined' && chrome.runtime) {
-        return 'chrome';
-    }
-    return 'unknown';
-}
 
 /**
  * Return the appropriate review URL for the current browser.

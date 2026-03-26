@@ -1,4 +1,4 @@
-import { BUTTONS } from '../share/buttons.js';
+import { BUTTONS } from '../share/social-buttons/buttons.js';
 import { getButtonVisibility, setButtonVisibility } from './settings.js';
 
 /**
@@ -67,4 +67,16 @@ export async function initSettingsTab() {
     });
 
     renderSettings();
+    renderVersionTag()
+}
+
+/**
+ * Render the extension version into the version tag element.
+ * @returns {void}
+ */
+function renderVersionTag() {
+    const versionEl = document.getElementById('version-number');
+    if (versionEl) {
+        versionEl.textContent = chrome.runtime.getManifest().version;
+    }
 }

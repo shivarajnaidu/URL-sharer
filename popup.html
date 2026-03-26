@@ -16,6 +16,8 @@
 
 <body>
     <div id="popup-container">
+
+        <!-- Tab Headers -->
         <div class="tab-bar" role="tablist">
             <button class="tab-btn active" data-tab="share" role="tab" aria-selected="true" aria-controls="tab-share"
                 id="tab-btn-share">Share</button>
@@ -25,10 +27,13 @@
                 id="tab-btn-settings">Settings</button>
         </div>
 
+        <!-- Tab: Share -->
         <div id="tab-share" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-share">
             <div id="social-sharing-link-container-layout">
                 <!-- Buttons rendered dynamically by js/modules/buttons.js -->
             </div>
+
+            <!-- About me and Review Link -->
             <div class="about-me">
                 <a id="review-link" class="hidden" target="_blank">Enjoying URL Sharer? ⭐ Leave a quick review</a>
                 <a href="https://github.com/shivarajnaidu/URL-sharer">URL sharer</a> By <a
@@ -36,12 +41,14 @@
             </div>
         </div>
 
+        <!-- Tab: Recent -->
         <div id="tab-recent" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-recent">
             <ul id="recent-list"></ul>
             <p id="recent-empty" class="hidden">No recent shares yet.</p>
             <button id="recent-clear" class="hidden" aria-label="Clear all recent shares">Clear All</button>
         </div>
 
+        <!-- Tab: Settings -->
         <div id="tab-settings" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-settings">
             <ul id="settings-list"></ul>
             <p class="version-info">Version: <span id="version-number"></span></p>
