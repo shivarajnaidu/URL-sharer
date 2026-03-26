@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.7.5 — QR Code Enhancements & Layout Fixes
+
+### QR Code
+- Added download button to QR overlay — saves the QR code as `qrcode.png`
+- Download button positioned top-left of the QR container, styled in primary colour with a download arrow icon
+
+### Layout
+- Set minimum height of `#popup-container` to always exceed the QR code image height
+- Footer (about/review section) in the Share tab now sticks to the bottom of the panel
+
 ## v1.7.4 — ES Modules & Code Quality
 
 ### ES Module Migration
