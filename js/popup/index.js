@@ -14,14 +14,15 @@ This program is free software: you can redistribute it and/or modify
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { renderButtons } from './modules/buttons.js';
-import { initSocialButtons, sendMessage } from './modules/social.js';
-import { initCopyButton } from './modules/copy.js';
-import { initQRButton } from './modules/qr.js';
-import { getSelectedText } from './modules/selection.js';
-import { initRecentTab } from './modules/recent-ui.js';
-import { initSettingsTab } from './modules/settings-ui.js';
-import { initReviewPrompt } from './modules/review.js';
+import { renderButtons } from './share/buttons.js';
+import { initSocialButtons } from './share/social.js';
+import { initCopyButton } from './share/copy.js';
+import { initQRButton } from './share/qr.js';
+import { getSelectedText } from './share/selection.js';
+import { initRecentTab } from './recent/recent-ui.js';
+import { initSettingsTab } from './settings/settings-ui.js';
+import { initReviewPrompt } from './share/review.js';
+import { saveRecentUrlViaBackground } from '../utils/messaging.js';
 
 /**
  * Wire up the tab-switching UI.
@@ -74,7 +75,7 @@ function initTabs() {
     document.getElementById('social-sharing-link-container-layout')
         .addEventListener('click', (e) => {
             if (e.target.closest('.sharing-buttons')) {
-                sendMessage('save-recent-url', { url: tabUrl, title: tabTitle });
+                saveRecentUrlViaBackground(tabUrl, tabTitle);
             }
         });
 

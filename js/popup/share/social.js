@@ -1,12 +1,4 @@
-/**
- * Send a message to the background service worker.
- * @param {string} type - The message type identifier.
- * @param {Object} data - The payload to send with the message.
- * @returns {void}
- */
-export function sendMessage(type, data) {
-    chrome.runtime.sendMessage({ type, data });
-}
+import { notifySharerTabOpened } from '../../utils/messaging.js';
 
 /**
  * Assign a sharing URL to a button element, opening it in a new tab
@@ -25,7 +17,7 @@ function urlAssigner(btn = {}) {
         event.preventDefault();
         const href = event.currentTarget.href;
         chrome.tabs.create({ url: href }).then((tab) => {
-            sendMessage('sharer-tab-id', { id: tab.id });
+            notifySharerTabOpened(tab.id);
         });
         window.setTimeout(() => window.close(), 10);
     });

@@ -1,4 +1,4 @@
-import { BUTTONS } from './buttons.js';
+import { BUTTONS } from '../share/buttons.js';
 import { getButtonVisibility, setButtonVisibility } from './settings.js';
 
 /**

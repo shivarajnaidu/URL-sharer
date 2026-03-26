@@ -14,7 +14,7 @@ export function initQRButton(url) {
     const closeBtn = document.querySelector('#qr-close');
 
     btn.addEventListener('click', async () => {
-        const { default: QRCode } = await import('../vendor/qrcode.js');
+        const { default: QRCode } = await import('../../vendor/qrcode.js');
         QRCode.toCanvas(canvas, url, { width: 200, margin: 1 }, (err) => {
             if (err) console.error(err);
         });
