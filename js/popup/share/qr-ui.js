@@ -11,7 +11,7 @@ export function renderQRCodePopupUI(container) {
     overlay.innerHTML =
         '<div class="qr-container">' +
             '<canvas id="qr-canvas"></canvas>' +
-            '<button id="qr-download" aria-label="Download QR code">' +
+            '<button id="qr-download" aria-label="Download QR code" title="Download QR code">' +
                 '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
                     '<path d="M12 3v13M7 11l5 5 5-5"/>' +
                     '<path d="M5 21h14"/>' +
