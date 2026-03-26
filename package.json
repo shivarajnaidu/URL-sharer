@@ -1,14 +1,14 @@
 {
   "name": "url-sharer",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "Share Everything You Want To Share",
   "dependencies": {
     "qrcode": "^1.5.4"
   },
   "scripts": {
-    "build": "esbuild js/index.js --bundle --outfile=js/bundle.js --format=iife --minify",
-    "pack": "npm run build && mkdir -p dist && zip -r dist/url-sharer-$npm_package_version.zip manifest.json index.html background-script.js css/ icons/ js/bundle.js LICENSE",
-    "postinstall": "npm run build",
+    "build:vendor": "esbuild node_modules/qrcode/lib/browser.js --bundle --outfile=js/vendor/qrcode.js --format=esm --minify",
+    "pack": "npm run build:vendor && mkdir -p dist && zip -r dist/url-sharer-$npm_package_version.zip manifest.json popup.html background-script.js css/ icons/ js/ LICENSE -x 'js/bundle.js'",
+    "postinstall": "npm run build:vendor",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.7.4 — ES Modules & Code Quality
+
+### ES Module Migration
+- Converted `background-script.js` to an ES module; added `"type": "module"` to manifest
+- Replaced `<script src="js/bundle.js">` with `<script type="module" src="js/index.js">` — browser loads app code directly as ES modules
+- QR code library (`qrcode`) lazy-loaded via dynamic `import()` on first click instead of eagerly bundled
+
+### Build Changes
+- Build step now only vendors the `qrcode` npm package into `js/vendor/qrcode.js` (ESM)
+- Renamed build script from `build` to `build:vendor` to reflect its purpose
+- Removed the full-app bundle (`js/bundle.js`); all app code served as native ES modules
+
+### Documentation
+- Added JSDoc-style comments with `@param`, `@returns`, and type annotations to every function across all JS files
+- Added section comments and explanatory inline comments to `background-script.js`
+
 ## v1.7.3 — Review Prompt & Version Display
 
 - Added subtle review prompt

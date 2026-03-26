@@ -1,10 +1,9 @@
-import QRCode from 'qrcode';
-
 /**
  * Initialise the QR code button and overlay.
  * Clicking the button generates a QR code for the given URL and shows it
- * in a modal overlay. The overlay can be dismissed by clicking the close
- * button or clicking outside the QR container.
+ * in a modal overlay. The QRCode library is lazy-loaded on first click.
+ * The overlay can be dismissed by clicking the close button or clicking
+ * outside the QR container.
  * @param {string} url - The URL to encode as a QR code.
  * @returns {void}
  */
@@ -14,7 +13,8 @@ export function initQRButton(url) {
     const canvas = document.querySelector('#qr-canvas');
     const closeBtn = document.querySelector('#qr-close');
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
+        const { default: QRCode } = await import('../vendor/qrcode.js');
         QRCode.toCanvas(canvas, url, { width: 200, margin: 1 }, (err) => {
             if (err) console.error(err);
         });
