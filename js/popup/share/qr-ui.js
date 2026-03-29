@@ -40,8 +40,24 @@ export function initQRButton(url) {
 
     btn.addEventListener('click', async () => {
         const { default: QRCode } = await import('../../vendor/qrcode.js');
+        const ctx = canvas.getContext('2d');
         QRCode.toCanvas(canvas, url, { width: 200, margin: 1 }, (err) => {
-            if (err) console.error(err);
+            if (err) return console.error(err);
+
+            // Extend canvas to fit brand watermark below the QR code
+            const padding = 18;
+            const originalHeight = canvas.height;
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            canvas.height = originalHeight + padding;
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.putImageData(imageData, 0, 0);
+
+            // Brand watermark
+            ctx.font = 'bold 10px sans-serif';
+            ctx.fillStyle = '#2e7d32';
+            ctx.textAlign = 'center';
+            ctx.fillText('Made with URL Sharer', canvas.width / 2, originalHeight + 13);
         });
         overlay.classList.remove('hidden');
     });
