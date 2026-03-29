@@ -1,3 +1,5 @@
+import { BRAND_PROMOTION } from '../../constants.js';
+
 /**
  * Get the user's selected (highlighted) text from the active tab
  * using the `chrome.scripting` API.
@@ -50,8 +52,11 @@ export function getSafeFormatedSocialSharingURLs(tabUrl, tabTitle, selectedText 
     const shareText = selectedText
         ? `"${selectedText}" — ${tabTitle}`
         : tabTitle;
+
+    // Brand promotion — that will help users to check for url sharer
+    const brandText = shareText + BRAND_PROMOTION;
     const encodedUrl = encodeURIComponent(tabUrl);
-    const encodedText = encodeURIComponent(shareText);
+    const encodedText = encodeURIComponent(brandText);
     const encodedTitle = encodeURIComponent(tabTitle);
 
     return [
@@ -61,7 +66,7 @@ export function getSafeFormatedSocialSharingURLs(tabUrl, tabTitle, selectedText 
         },
         {
             id: 'url-facebook',
-            href: `https://www.facebook.com/sharer.php?u=${encodedUrl}`
+            href: `https://www.facebook.com/sharer.php?u=${encodedUrl}&quote=${encodedText}`
         },
         {
             id: 'url-twitter',
@@ -73,7 +78,7 @@ export function getSafeFormatedSocialSharingURLs(tabUrl, tabTitle, selectedText 
         },
         {
             id: 'url-linkedin',
-            href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedText}`
+            href: `https://www.linkedin.com/shareArticle?url=${encodedUrl}&title=${encodedTitle}&summary=${encodedText}&source=URL%20Sharer`
         },
         {
             id: 'url-reddit',
