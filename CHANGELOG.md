@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.7.6 — Share URL Fixes, Brand Promotion & Cleanup
+
+### Share URL Fixes
+- Twitter/X: Updated from deprecated `twitter.com/share` to `x.com/intent/post`
+- LinkedIn: Switched to `shareArticle` with `title`, `summary`, and `source` params
+- Facebook: Added `quote` parameter to `sharer.php` for pre-filled share text
+- Pinterest: Changed from `http://` to `https://`
+
+### Brand Promotion
+- Every share now appends a "Shared via URL-sharer" signature visible only to the recipient
+- Signature stored as a constant (`BRAND_PROMOTION`) in `js/constants.js` for easy toggling
+- WhatsApp uses a plain-text variant without emoji for compatibility
+
+### Removed
+- Removed Instagram — no web share API exists; button, CSS styles, share URL entry, and icon deleted
+- Platform count updated to 14
+
 ## v1.7.5 — QR Code Enhancements & Layout Fixes
 
 ### QR Code
