@@ -45,7 +45,6 @@
 #url-email       { background-color: var(--color-neutral); }
 #url-whatsapp    { background-color: #25D366; }
 #url-bluesky     { background-color: #0085FF; }
-#url-instagram   { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
 #url-telegram    { background-color: #0088cc; }
 #url-threads     { background-color: #000; }
 #url-tumblr      { background-color: #35465c; }
@@ -63,7 +62,6 @@
 #url-copy:hover        { background-color: var(--color-dark-hover); }
 #url-whatsapp:hover    { background-color: #1ebe57; }
 #url-bluesky:hover     { background-color: #0070d6; }
-#url-instagram:hover   { background: linear-gradient(45deg, #d6832d, #cc5c35, #c2223b, #b31f5b, #a51579); }
 #url-telegram:hover    { background-color: #0077b3; }
 #url-threads:hover     { background-color: #333; }
 #url-tumblr:hover      { background-color: #2b3a4d; }

@@ -28,13 +28,6 @@ export const BUTTONS = [
     },
 
     {
-        id: 'url-instagram',
-        label: 'Instagram',
-        icon: 'instagram',
-        title: 'Share On Instagram'
-    },
-
-    {
         id: 'url-twitter',
         label: 'Twitter',
         icon: 'twitter',

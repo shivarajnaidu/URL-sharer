@@ -55,19 +55,54 @@ export function getSafeFormatedSocialSharingURLs(tabUrl, tabTitle, selectedText 
     const encodedTitle = encodeURIComponent(tabTitle);
 
     return [
-        { id: 'url-whatsapp', href: `https://wa.me/?text=${encodedText}%20${encodedUrl}` },
-        { id: 'url-facebook', href: `https://www.facebook.com/sharer.php?u=${encodedUrl}` },
-        { id: 'url-instagram', href: `https://www.instagram.com/` },
-        { id: 'url-twitter', href: `https://twitter.com/share?url=${encodedUrl}&text=${encodedText}` },
-        { id: 'url-telegram', href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}` },
-        { id: 'url-linkedin', href: `https://www.linkedin.com/shareArticle?url=${encodedUrl}&title=${encodedText}` },
-        { id: 'url-reddit', href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedText}` },
-        { id: 'url-pinterest', href: `http://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodedText}` },
-        { id: 'url-threads', href: `https://www.threads.net/intent/post?text=${encodedText}%20${encodedUrl}` },
-        { id: 'url-bluesky', href: `https://bsky.app/intent/compose?text=${encodedText}%20${encodedUrl}` },
-        { id: 'url-tumblr', href: `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${encodedUrl}&title=${encodedText}` },
-        { id: 'url-hackernews', href: `https://news.ycombinator.com/submitlink?u=${encodedUrl}&t=${encodedText}` },
-        { id: 'url-email', href: `mailto:?subject=${encodedTitle}&body=${encodedText}%0A${encodedUrl}` },
+        {
+            id: 'url-whatsapp',
+            href: `https://wa.me/?text=${encodedText}%20${encodedUrl}`
+        },
+        {
+            id: 'url-facebook',
+            href: `https://www.facebook.com/sharer.php?u=${encodedUrl}`
+        },
+        {
+            id: 'url-twitter',
+            href: `https://x.com/intent/post?text=${encodedText}%20${encodedUrl}`
+        },
+        {
+            id: 'url-telegram',
+            href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`
+        },
+        {
+            id: 'url-linkedin',
+            href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedText}`
+        },
+        {
+            id: 'url-reddit',
+            href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedText}`
+        },
+        {
+            id: 'url-pinterest',
+            href: `https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodedText}`
+        },
+        {
+            id: 'url-threads',
+            href: `https://www.threads.net/intent/post?text=${encodedText}%20${encodedUrl}`
+        },
+        {
+            id: 'url-bluesky',
+            href: `https://bsky.app/intent/compose?text=${encodedText}%20${encodedUrl}`
+        },
+        {
+            id: 'url-tumblr',
+            href: `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${encodedUrl}&title=${encodedText}`
+        },
+        {
+            id: 'url-hackernews',
+            href: `https://news.ycombinator.com/submitlink?u=${encodedUrl}&t=${encodedText}`
+        },
+        {
+            id: 'url-email',
+            href: `mailto:?subject=${encodedTitle}&body=${encodedText}%0A${encodedUrl}`
+        },
     ];
 }
 
