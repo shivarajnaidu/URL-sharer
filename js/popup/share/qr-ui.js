@@ -54,7 +54,7 @@ export function initQRButton(url) {
             ctx.putImageData(imageData, 0, 0);
 
             // Brand watermark
-            ctx.font = 'bold 10px sans-serif';
+            ctx.font = 'bold 16px sans-serif';
             ctx.fillStyle = '#2e7d32';
             ctx.textAlign = 'center';
             ctx.fillText('Made with URL Sharer', canvas.width / 2, originalHeight + 13);
